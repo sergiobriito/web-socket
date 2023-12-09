@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Chat</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/app.js"></script>
+</head>
+<body>
+<noscript>
+    <div class="container mt-3">
+        <div class="alert alert-danger" role="alert">
+            Seems your browser doesn't support Javascript! Websocket relies on Javascript being enabled. Please enable Javascript and reload this page!
+        </div>
+    </div>
+</noscript>
+<div id="main-content" class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="fixed-top bg-dark p-2 d-flex justify-content-between align-items-center">
+                <h4 class="text-light mb-0">Web Chat</h4>
+                <form class="form-inline">
+                    <div class="form-group mb-0">
+                        <button id="connect" class="btn btn-primary ml-2" type="submit">Connect</button>
+                        <button id="disconnect" class="btn btn-secondary ml-2" type="submit" disabled="disabled">Disconnect</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th class="text-center">Messages</th>
+                </tr>
+                </thead>
+                <tbody id="messages">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-inline" id="messageForm">
+                <div class="input-group">
+                    <input type="text" id="userName" class="form-control" placeholder="Your name here...">
+                    <input type="text" id="content" class="form-control" placeholder="Your message here...">
+                    <div class="input-group-append">
+                        <button id="send" class="btn btn-primary" type="submit">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
